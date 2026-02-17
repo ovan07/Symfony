@@ -23,6 +23,16 @@
             <td>{{ product.description ?? '—' }}</td>
         </tr>
         <tr>
+            <th>Category</th>
+            <td>
+                {% if product.category %}
+                    <a href="{{ path('category_show', {id: product.category.id}) }}">{{ product.category.name }}</a>
+                {% else %}
+                    —
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
             <th>Price</th>
             <td>${{ product.price }}</td>
         </tr>

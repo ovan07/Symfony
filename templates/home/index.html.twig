@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+    <h1>Dashboard</h1>
+
+    <div class="cards">
+        <div class="card">
+            <div class="card-value">{{ productCount }}</div>
+            <div class="card-label">Products</div>
+            <a href="{{ path('product_index') }}" class="btn">View Products</a>
+        </div>
+        <div class="card">
+            <div class="card-value">{{ categoryCount }}</div>
+            <div class="card-label">Categories</div>
+            <a href="{{ path('category_index') }}" class="btn">View Categories</a>
+        </div>
+    </div>
+
+    <div class="quick-links">
+        <h2>Quick Actions</h2>
+        <div class="actions">
+            <a href="{{ path('product_new') }}" class="btn">New Product</a>
+            <a href="{{ path('category_new') }}" class="btn">New Category</a>
+        </div>
+    </div>
+{% endblock %}

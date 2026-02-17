@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Category{% endblock %}
+
+{% block body %}
+    <h1>Create New Category</h1>
+
+    {% include 'category/_form.html.twig' with {button_label: 'Create'} %}
+
+    <div class="actions">
+        <a href="{{ path('category_index') }}" class="btn btn-secondary">Back to list</a>
+    </div>
+{% endblock %}
