@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Product: {{ product.name }}{% endblock %}
+
+{% block body %}
+    <h1>{{ product.name }}</h1>
+
+    {% for message in app.flashes('success') %}
+        <div class="flash-success">{{ message }}</div>
+    {% endfor %}
+
+    <table class="detail">
+        <tr>
+            <th>ID</th>
+            <td>{{ product.id }}</td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td>{{ product.name }}</td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td>{{ product.description ?? '—' }}</td>
+        </tr>
+        <tr>
+            <th>Price</th>
+            <td>${{ product.price }}</td>
+        </tr>
+        <tr>
+            <th>Stock</th>
+            <td>{{ product.stock }}</td>
+        </tr>
+    </table>
+
+    <div class="actions">
+        <a href="{{ path('product_edit', {id: product.id}) }}" class="btn">Edit</a>
+        <a href="{{ path('product_index') }}" class="btn btn-secondary">Back to list</a>
+        <form method="post" action="{{ path('product_delete', {id: product.id}) }}" onsubmit="return confirm('Are you sure you want to delete this product?');" style="display:inline">
+            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ product.id) }}">
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+    </div>
+{% endblock %}
