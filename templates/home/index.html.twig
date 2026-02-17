@@ -3,24 +3,24 @@
 {% block title %}Dashboard{% endblock %}
 
 {% block body %}
-    <h1>Dashboard</h1>
+    <h1 class="text-3xl font-bold mb-5 text-sidebar">Dashboard</h1>
 
-    <div class="cards">
-        <div class="card">
-            <div class="card-value">{{ productCount }}</div>
-            <div class="card-label">Products</div>
+    <div class="flex gap-6 my-6">
+        <div class="bg-white rounded-lg p-6 shadow-sm flex-1 text-center">
+            <div class="text-4xl font-bold text-primary">{{ productCount }}</div>
+            <div class="text-[0.95rem] text-gray-500 mb-4">Products</div>
             <a href="{{ path('product_index') }}" class="btn">View Products</a>
         </div>
-        <div class="card">
-            <div class="card-value">{{ categoryCount }}</div>
-            <div class="card-label">Categories</div>
+        <div class="bg-white rounded-lg p-6 shadow-sm flex-1 text-center">
+            <div class="text-4xl font-bold text-primary">{{ categoryCount }}</div>
+            <div class="text-[0.95rem] text-gray-500 mb-4">Categories</div>
             <a href="{{ path('category_index') }}" class="btn">View Categories</a>
         </div>
     </div>
 
-    <div class="quick-links">
-        <h2>Quick Actions</h2>
-        <div class="actions">
+    <div class="mt-8">
+        <h2 class="text-xl font-bold mb-3 text-sidebar">Quick Actions</h2>
+        <div class="my-5 flex gap-2 items-center">
             <a href="{{ path('product_new') }}" class="btn">New Product</a>
             <a href="{{ path('category_new') }}" class="btn">New Category</a>
         </div>

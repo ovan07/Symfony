@@ -3,11 +3,11 @@
 {% block title %}New Product{% endblock %}
 
 {% block body %}
-    <h1>Create New Product</h1>
+    <h1 class="text-3xl font-bold mb-5 text-sidebar">Create New Product</h1>
 
     {% include 'product/_form.html.twig' with {button_label: 'Create'} %}
 
-    <div class="actions">
+    <div class="my-5 flex gap-2 items-center">
         <a href="{{ path('product_index') }}" class="btn btn-secondary">Back to list</a>
     </div>
 {% endblock %}

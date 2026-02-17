@@ -3,11 +3,11 @@
 {% block title %}Edit Category: {{ category.name }}{% endblock %}
 
 {% block body %}
-    <h1>Edit: {{ category.name }}</h1>
+    <h1 class="text-3xl font-bold mb-5 text-sidebar">Edit: {{ category.name }}</h1>
 
     {% include 'category/_form.html.twig' with {button_label: 'Update'} %}
 
-    <div class="actions">
+    <div class="my-5 flex gap-2 items-center">
         <a href="{{ path('category_show', {id: category.id}) }}" class="btn btn-secondary">Back to category</a>
         <a href="{{ path('category_index') }}" class="btn btn-secondary">Back to list</a>
     </div>

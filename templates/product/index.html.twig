@@ -3,43 +3,43 @@
 {% block title %}Products{% endblock %}
 
 {% block body %}
-    <h1>Products</h1>
+    <h1 class="text-3xl font-bold mb-5 text-sidebar">Products</h1>
 
     {% for message in app.flashes('success') %}
-        <div class="flash-success">{{ message }}</div>
+        <div class="bg-green-100 text-green-800 px-4 py-3 rounded-md mb-4 border border-green-300">{{ message }}</div>
     {% endfor %}
 
-    <div class="actions">
+    <div class="my-5 flex gap-2 items-center">
         <a href="{{ path('product_new') }}" class="btn">+ New Product</a>
     </div>
 
-    <table>
+    <table class="w-full border-collapse bg-white rounded-lg overflow-hidden shadow-sm my-4">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Category</th>
-                <th>Price</th>
-                <th>Stock</th>
-                <th>Actions</th>
+                <th class="px-4 py-3 text-left bg-sidebar text-white font-semibold text-xs uppercase tracking-wide">ID</th>
+                <th class="px-4 py-3 text-left bg-sidebar text-white font-semibold text-xs uppercase tracking-wide">Name</th>
+                <th class="px-4 py-3 text-left bg-sidebar text-white font-semibold text-xs uppercase tracking-wide">Category</th>
+                <th class="px-4 py-3 text-left bg-sidebar text-white font-semibold text-xs uppercase tracking-wide">Price</th>
+                <th class="px-4 py-3 text-left bg-sidebar text-white font-semibold text-xs uppercase tracking-wide">Stock</th>
+                <th class="px-4 py-3 text-left bg-sidebar text-white font-semibold text-xs uppercase tracking-wide">Actions</th>
             </tr>
         </thead>
         <tbody>
             {% for product in products %}
-                <tr>
-                    <td>{{ product.id }}</td>
-                    <td>{{ product.name }}</td>
-                    <td>{{ product.category ? product.category.name : '—' }}</td>
-                    <td>${{ product.price }}</td>
-                    <td>{{ product.stock }}</td>
-                    <td>
+                <tr class="border-b border-gray-200 last:border-b-0 hover:bg-blue-50/50">
+                    <td class="px-4 py-3">{{ product.id }}</td>
+                    <td class="px-4 py-3">{{ product.name }}</td>
+                    <td class="px-4 py-3">{{ product.category ? product.category.name : '—' }}</td>
+                    <td class="px-4 py-3">${{ product.price }}</td>
+                    <td class="px-4 py-3">{{ product.stock }}</td>
+                    <td class="px-4 py-3">
                         <a href="{{ path('product_show', {id: product.id}) }}" class="btn">Show</a>
                         <a href="{{ path('product_edit', {id: product.id}) }}" class="btn btn-secondary">Edit</a>
                     </td>
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="6" class="empty">No products found.</td>
+                    <td colspan="6" class="px-4 py-3 text-gray-400 italic">No products found.</td>
                 </tr>
             {% endfor %}
         </tbody>
